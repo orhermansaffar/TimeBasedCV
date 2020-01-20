@@ -106,8 +106,7 @@ class TimeBasedCV(object):
         return self.n_splits 
 
 # How to use TimeBasedCV
-data_for_modeling=pd.read_csv('data.csv')
-data_for_modeling['record_date']=data_for_modeling['record_date'].values.astype('datetime64[D]')
+data_for_modeling=pd.read_csv('data.csv', parse_dates=['record_date'])
 tscv = TimeBasedCV(train_period=30,
                    test_period=7,
                    freq='days')
